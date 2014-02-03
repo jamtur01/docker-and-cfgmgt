@@ -1,6 +1,6 @@
-# Introduction to Docker
+# Docker and Configuration Management
 
-Originally for Full stack Meetup
+Configuration Management Camp 2014
 
 ## Author
 
