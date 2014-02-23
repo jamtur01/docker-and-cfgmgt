@@ -104,8 +104,8 @@
 
          <div>
            <img alt="owl" src="images/container.jpg" class="plain" style="text-align: center; width: 600px; height: 400px">
-         </div> 
-         </section>
+         </div>
+       </section>
 
        <section>
          <h1>Build once, run in many places</h1>
@@ -180,24 +180,43 @@
 
        <section>
          <h2>Building the image</h2>
-         <br />
+
          <pre><code style="font-size: 120%" class="bash" data-trim>$ sudo docker build -t="jamtur01/apache2" .</code></pre>
+
+         <br /><br />
+         <iframe width="900" height="400" scrolling="no" src="http://localhost:4200"></iframe>  
        </section>
 
        <section>
          <h2>Pushing the image</h2>
          <br />
          <pre><code style="font-size: 120%" class="bash" data-trim>$ sudo docker push jamtur01/apache2 </code></pre>
-       </section>
+
+         <br /><br />
+         <iframe width="900" height="400" scrolling="no" src="http://localhost:4200"></iframe>
+         </section>
 
        <section>
          <h2>Running the container</h2>
          <br />
          <pre><code style="font-size: 120%" class="bash" data-trim>$ sudo docker run -d -p 80 -v /var/www/myapp jamtur01/apache2</code></pre>
+
+         <br /><br />
+         <iframe width="900" height="400" scrolling="no" src="http://localhost:4200"></iframe>
        </section>
 
        <section>
-         <h1>Does it play well with others?</h1>
+          <h2>My mission critical web app</h2>
+          <div>
+            <img alt="logo" src="images/lolcats.png" class="plain" style="text-align: center; width: 600px; height: 500px">
+          </div>
+       </section>
+
+       <section>
+         <h2>Does it play well with others?</h2>
+         <div>
+           <img alt="dose" src="images/dose.jpg" class="plain" style="text-align: center; width: 500px; height: 500px">
+         </div>
        </section>
 
        <section>
@@ -235,6 +254,9 @@
          <h2>Building the base Puppet image</h2>
          <br />
          <pre><code style="font-size: 120%" class="bash" data-trim>$ sudo docker build -t="jamtur01/puppet" .</code></pre>
+
+         <br /><br />
+         <iframe width="900" height="400" scrolling="no" src="http://localhost:4200"></iframe>
        </section>
 
        <section>
@@ -270,6 +292,8 @@
          <h2>Building the application image</h2>
          <br />
          <pre><code style="font-size: 120%" class="bash" data-trim>$ sudo docker build -t="jamtur01/nginx" .</code></pre>
+         <br /><br />
+         <iframe width="900" height="400" scrolling="no" src="http://localhost:4200"></iframe>
        </section>
 
        <section>
@@ -280,6 +304,8 @@
          <h2>Running the application</h2>
          <br />
          <pre><code style="font-size: 120%" class="bash" data-trim>$ sudo docker run -P -d jamtur01/nginx</code></pre>
+         <br /><br />
+         <iframe width="900" height="400" scrolling="no" src="http://localhost:4200"></iframe>
        </section>
 
        <section>
