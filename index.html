@@ -142,10 +142,10 @@
        <section>
          <h2>Technology Stack</h2>
          <ul>
-           <li>Runs (for now) on most Linux distros
+           <li>Runs on most Linux distros
            <li>cgroups and namespacing
-           <li>Device Mapper or AUFS or vfs or &lt;pluggable in future&gt;
-           <li>lxc or &lt;pluggable in future&gt;
+           <li>Device Mapper or AUFS or vfs or pluggable
+           <li>libcontainer or lxc
          </ul>
        </section>
 
@@ -164,15 +164,16 @@
          <pre><code style="font-size: 120%">
            FROM       ubuntu
            MAINTAINER James Turnbull "james@example.com"
-           
-           RUN apt-get install -y apache2
-           
+
+           RUN apt-get update && apt-get install -q -y apache2
+           ADD index.html /var/www/
+
            ENV APACHE_RUN_USER www-data
            ENV APACHE_RUN_GROUP www-data
            ENV APACHE_LOG_DIR /var/log/apache2
-           
+
            EXPOSE 80
-           
+
            ENTRYPOINT ["/usr/sbin/apache2"]
            CMD ["-D", "FOREGROUND"]
          </code></pre>
@@ -193,16 +194,16 @@
          <pre><code style="font-size: 120%" class="bash" data-trim>$ sudo docker push jamtur01/apache2 </code></pre>
 
          <br /><br />
-         <iframe width="900" height="400" scrolling="no" src="http://localhost:4200"></iframe>
+         <iframe width="900" height="400" scrolling="no" src="http://localhost:4201"></iframe>
          </section>
 
        <section>
          <h2>Running the container</h2>
          <br />
-         <pre><code style="font-size: 120%" class="bash" data-trim>$ sudo docker run -d -p 80 -v /var/www/myapp jamtur01/apache2</code></pre>
+         <pre><code style="font-size: 120%" class="bash" data-trim>$ sudo docker run -d -p 80 jamtur01/apache2</code></pre>
 
          <br /><br />
-         <iframe width="900" height="400" scrolling="no" src="http://localhost:4200"></iframe>
+         <iframe width="900" height="400" scrolling="no" src="http://localhost:4202"></iframe>
        </section>
 
        <section>
@@ -256,7 +257,7 @@
          <pre><code style="font-size: 120%" class="bash" data-trim>$ sudo docker build -t="jamtur01/puppet" .</code></pre>
 
          <br /><br />
-         <iframe width="900" height="400" scrolling="no" src="http://localhost:4200"></iframe>
+         <iframe width="900" height="400" scrolling="no" src="http://localhost:4203"></iframe>
        </section>
 
        <section>
@@ -293,7 +294,7 @@
          <br />
          <pre><code style="font-size: 120%" class="bash" data-trim>$ sudo docker build -t="jamtur01/nginx" .</code></pre>
          <br /><br />
-         <iframe width="900" height="400" scrolling="no" src="http://localhost:4200"></iframe>
+         <iframe width="900" height="400" scrolling="no" src="http://localhost:4204"></iframe>
        </section>
 
        <section>
@@ -305,7 +306,7 @@
          <br />
          <pre><code style="font-size: 120%" class="bash" data-trim>$ sudo docker run -P -d jamtur01/nginx</code></pre>
          <br /><br />
-         <iframe width="900" height="400" scrolling="no" src="http://localhost:4200"></iframe>
+         <iframe width="900" height="400" scrolling="no" src="http://localhost:4205"></iframe>
        </section>
 
        <section>
