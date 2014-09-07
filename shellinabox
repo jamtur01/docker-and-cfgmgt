@@ -1,14 +1,15 @@
 #!/bin/sh
 
-for i in 0 1 2 3 4 5 6; do
+for i in `seq 0 5`; do
     port="$((4200+$i))"
 
     shellinaboxd \
       --localhost-only \
-      --background="`dirname $0`/shellinabox.$i.pid" \
+      --background="./shellinabox.$i.pid" \
       --port=$port \
-      --service /:james:staff:HOME:"env SSH_AUTH_SOCK=$SSH_AUTH_SOCK ssh root@162.243.109.190 cd dcm" \
+      --service /:james:staff:HOME:"env SSH_AUTH_SOCK=$SSH_AUTH_SOCK ssh -vv root@162.243.109.190 cd dcm" \
       --css white-on-black.css \
       --no-beep \
+      --numeric \
       --disable-ssl
 done
