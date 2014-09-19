@@ -197,9 +197,6 @@
 
         <pre><code style="font-size: 120%" class="bash" data-trim>$ sudo docker build -t="jamtur01/apache2" .</code></pre>
 
-        <br />
-        <br />
-        <iframe width="900" height="400" scrolling="no" src="http://localhost:4200"></iframe>
       </section>
 
       <section>
@@ -207,10 +204,41 @@
         <br />
         <pre><code style="font-size: 120%" class="bash" data-trim>$ sudo docker run -ti -p 80:80 jamtur01/apache2</code></pre>
 
-        <br />
-        <br />
-        <iframe width="900" height="400" scrolling="no" src="http://localhost:4202"></iframe>
       </section>
+
+      <section>
+        <h1>So does the Dockerfile solve all?</h1>
+      </section>
+
+<section>
+  <h1>Well sorta... It depends.</h1>
+</section
+
+<section>
+  <ul style="list-style: none;">
+    <li>
+      <h3>Doesn't have to deal with low-level stuff</h3>
+    <li>
+      <h3>Doesn't have to converge</h3>
+    <li>
+      <h3>Rebuilds are fast and cached</h3>
+    <li>
+      <h3>Allows inheritance and composition</h3>
+    <li>
+      <h3>Easy learning curve</h3>
+  </ul>
+</section>
+
+<section>
+  <ul style="list-style: none;">
+    <li>
+      <h3>Doesn't deal with low-level stuff</h3>
+    <li>
+      <h3>Doesn't define resource dependencies</h3>
+    <li>
+      <h3>Doesn't define what runs when</h3>
+  </ul>
+</section>
 
       <section>
         <h1>Dockerfile</h1>
@@ -219,7 +247,15 @@
       </section>
 
       <section>
-        Shell scripts OK-ish for simple stacks Tricky to handle all possible situations (that's why we have proper config management) Though choice when rebuilding: from scratch (but it takes forever!) iteratively (but might behave differently!)
+        <h1>Shell scripts</h1>
+        <ul style="list-style: none;">
+          <li>
+            <h3>Okay for simple stacks</h3>
+          <li>
+            <h3>Imperative</h3>
+          <li>
+            <h3>Rarely idempotent</h3>
+        </ul>
       </section>
 
       <section>
@@ -229,31 +265,44 @@
       </section>
 
       <section>
-        Configuration Management: the Good Deals with low-level stuff Abstracts some details (distro, sometimes OS) Ensures convergence to a known state Library of reusable, composable templates
+        <h2>Configuration Management</h2>
+        <br />
+        <h2>The Good</h2>
       </section>
 
       <section>
-        Configuration Management: the Bad ● Steep learning curve ● Generally requires an agent (or something to trigger e.g. puppet apply ») ● Resource-intensive (it's OK to run the agent on a 64 GB server, it's less OK to run 100 agents on said server)
+        <ul style="list-style: none;">
+          <li>
+            <h3>Handles low-level stuff</h3>
+          <li>
+            <h3>Abstracts details</h3>
+          <li>
+            <h3>Ensures convergence to a known state</h3>
+          <li>
+            <h3>Library of reusable, composable templates</h3>
+        </ul>
       </section>
 
       <section>
-        Configuration Management ● Reusability is just as good as modules are (i.e. YMMV) ● Not as deterministic as you think ● Rollbacks are harder than you think { 'openssl' : ensure => present } { 'openssl' : ensure => '1.2.3-no-heartbleed-pls' }
+        <h2>Configuration Management</h2>
+        <br />
+        <h2>The Bad</h2>
       </section>
 
       <section>
-        Dockerfile to the rescue
+        <ul style="list-style: none;">
+          <li>
+            <h3>Steep learning curve</h3>
+          <li>
+            <h3>Generally requires a trigger</h3>
+          <li>
+            <h3>Resource-intensive</h3>
       </section>
 
-      <section>
-        Dockerfile Doesn't have to deal with low-level stuff (hardware, drivers... handled by the host) Doesn't need all the goodness of CM (because it doesn't have to converge) Partial rebuilds are fast (layered caching rebuilds only what is needed) Allows inheritance
-        and composition (FROM blah see also: ONBUILD) Easy learning curve (if you know Shell, you already know Dockerfile)
-      </section>
 
-      <section>
-        But... ● Doesn't deal with « low-level stuff » (hardware, drivers...) ● Doesn't define resource dependencies (no before/after) ● Doesn't define what runs when
-      </section>
 
-      <section <h1>Puppet to the rescue</h1>
+      <section
+        <h1>Puppet to the rescue</h1>
       </section>
 
       <section>
@@ -337,6 +386,9 @@ Use Puppet to setup hardware, install packages, deploy code, run services.
 
       <section>
         <h1>The Future</h1>
+        <div>
+          <img alt="concept car" src="images/concept.jpg" class="plain" style="text-align: center; width: 600px; height: 400px">
+        </div>
       </section>
 
       <section>
