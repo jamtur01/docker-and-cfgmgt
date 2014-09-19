@@ -196,14 +196,12 @@
         <h2>Building the image</h2>
 
         <pre><code style="font-size: 120%" class="bash" data-trim>$ sudo docker build -t="jamtur01/apache2" .</code></pre>
-
       </section>
 
       <section>
         <h2>Running the container</h2>
         <br />
         <pre><code style="font-size: 120%" class="bash" data-trim>$ sudo docker run -ti -p 80:80 jamtur01/apache2</code></pre>
-
       </section>
 
       <section>
@@ -211,8 +209,8 @@
       </section>
 
 <section>
-  <h1>Well sorta... It depends.</h1>
-</section
+  <h1>Well sorta...<br /> It depends.</h1>
+</section>
 
 <section>
   <ul style="list-style: none;">
@@ -227,6 +225,10 @@
     <li>
       <h3>Easy learning curve</h3>
   </ul>
+</section>
+
+<section>
+  <h1>But...</h1>
 </section>
 
 <section>
@@ -265,12 +267,7 @@
       </section>
 
       <section>
-        <h2>Configuration Management</h2>
-        <br />
         <h2>The Good</h2>
-      </section>
-
-      <section>
         <ul style="list-style: none;">
           <li>
             <h3>Handles low-level stuff</h3>
@@ -284,12 +281,7 @@
       </section>
 
       <section>
-        <h2>Configuration Management</h2>
-        <br />
         <h2>The Bad</h2>
-      </section>
-
-      <section>
         <ul style="list-style: none;">
           <li>
             <h3>Steep learning curve</h3>
@@ -299,10 +291,12 @@
             <h3>Resource-intensive</h3>
       </section>
 
-
-
-      <section
-        <h1>Puppet to the rescue</h1>
+      <section>
+        <h3>Digging and fixing,<br /> Having so much fun</h3>
+<div>
+  <img alt="bob" src="images/bob.jpg" class="plain" style="text-align: center; width: 600px; height: 400px">
+</div>
+<h3>Working together,<br /> They get the job done</h3>
       </section>
 
       <section>
@@ -324,7 +318,7 @@ Use Puppet to setup hardware, install packages, deploy code, run services.
       </section>
 
       <section>
-        <h1>Should I run Puppet in my containers</h1>
+        <h1>Should I run Puppet in my containers?</h1>
       </section>
 
       <section>
@@ -377,11 +371,19 @@ Use Puppet to setup hardware, install packages, deploy code, run services.
       </section>
 
       <section>
-        Get rid of sshd, crond, syslogd... ● Remote access: nsenter https://github.com/jpetazzo/nsenter ● Cron: use a separate container ● Logs: use a data container
+        Get rid of sshd, crond, syslogd...
+        Remote access: nsenter https://github.com/jpetazzo/nsenter
+        Cron: use a separate container
+        Logs: use a data container
       </section>
 
       <section>
-        Why? Microservices architecture ● Separate orthogonal concerns (don't rebuild your app to change logging, remote access, and other unrelated things) ● Have different policies in prod/dev/QA/etc ● Ship lighter containers
+        Why?
+        Microservices architecture
+        Separate orthogonal concerns
+        Don't rebuild your app to change services
+        Have different policies in prod/dev/QA/etc
+        Ship lighter containers
       </section>
 
       <section>
@@ -392,7 +394,10 @@ Use Puppet to setup hardware, install packages, deploy code, run services.
       </section>
 
       <section>
-        What if we could... ● Run the Puppet agent outside of the container ● Run a single agent for many containers ● Share the cost of the agent
+        What if we could...
+        Run the Puppet agent outside of the container
+        Run a single agent for many containers
+        Share the cost of the agent
       </section>
 
       <section>
