@@ -1,0 +1,9 @@
+   shellinaboxd \
+      --localhost-only \
+      --port=4200 \
+      --service /:james:staff:HOME:"env SSH_AUTH_SOCK=$SSH_AUTH_SOCK ssh -tt root@162.243.109.190 cd dcm" \
+      --css white-on-black.css \
+      --no-beep \
+      --numeric \
+      --verbose \
+      --disable-ssl

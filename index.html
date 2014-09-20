@@ -344,7 +344,7 @@ Use Puppet to setup hardware, install packages, deploy code, run services.
       </section>
 
       <section>
-        <h2>Puppet image</h2>
+        <h2>Puppet Apply</h2>
         <br />
         <pre><code class="bash" style="font-size: 120%">
            FROM ubuntu:14.04
@@ -363,6 +363,28 @@ Use Puppet to setup hardware, install packages, deploy code, run services.
         </code></pre>
       </section>
 
+<section>
+  <h2>Librarian Puppet</h2>
+  <br />
+  <pre><code class="bash" style="font-size: 120%">
+          FROM ubuntu:14.04
+          MAINTAINER James Turnbull "james@example.com"
+
+          RUN apt-get -y -q install wget git-core rubygems
+          RUN gem install --no-ri --no-rdoc puppet librarian-puppet
+
+          ADD Puppetfile /
+          RUN librarian-puppet install
+          RUN puppet apply --modulepath=/modules -e "class { 'nginx': }"
+          RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+
+          EXPOSE 80
+
+          CMD ["nginx"]
+
+</code></pre>
+</section>
+
       <section>
         <h1>But there's more!</h1>
         <div>
@@ -371,19 +393,31 @@ Use Puppet to setup hardware, install packages, deploy code, run services.
       </section>
 
       <section>
-        Get rid of sshd, crond, syslogd...
-        Remote access: nsenter https://github.com/jpetazzo/nsenter
-        Cron: use a separate container
-        Logs: use a data container
+        <h2>What if we could get rid of...</h2>
+        <ul style="list-style: none;">
+          <li>
+            <h3>SSHd - Access via nsenter or docker exec</h3>
+          <li>
+            <h3>Crond in a container</h3>
+          <li>
+            <h3>Logging in a container</h3>
+        </ul>
       </section>
 
       <section>
-        Why?
-        Microservices architecture
-        Separate orthogonal concerns
-        Don't rebuild your app to change services
-        Have different policies in prod/dev/QA/etc
-        Ship lighter containers
+        <h2>Starts to create a new way</h2>
+        <ul style="list-style: none;">
+          <li>
+            <h3>Microservices architecture</h3>
+          <li>
+            <h3>Separate orthogonal concerns</h3>
+          <li>
+            <h3>Don't rebuild your app to change services</h3>
+          <li>
+            <h3>Have different policies in domains</h3>
+          <li>
+            <h3>Ship lighter containers</h3>
+        </ul>
       </section>
 
       <section>
@@ -394,10 +428,15 @@ Use Puppet to setup hardware, install packages, deploy code, run services.
       </section>
 
       <section>
-        What if we could...
-        Run the Puppet agent outside of the container
-        Run a single agent for many containers
-        Share the cost of the agent
+        <h2>What if we could...</h2>
+        <ul style="list-style: none;">
+          <li>
+            <h3>Run the Puppet agent outside of the container</h3>
+          <li>
+            <h3>Run a single agent for many containers</h3>
+          <li>
+            <h3>Share the cost of the agent</h3>
+        </ul>
       </section>
 
       <section>
