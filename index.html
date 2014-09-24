@@ -76,19 +76,20 @@
       </section>
 
       <section>
-        <h2> The Docker Book </h2>
+        <h3> The Docker Book </h3>
 
         <div>
           <a href="http://www.dockerbook.com">
-            <img alt="docker book" src="images/cover.png" class="plain" style="text-align: center; height: 400px">
+            <img alt="docker book" src="images/cover.png" class="plain" style="text-align: center; height: 300px">
           </a>
         </div>
 
         <h3><a href="http://www.dockerbook.com">www.dockerbook.com</a></h3>
+        <h2>25% off with code</h2> <h2><strong style="color:red;">PUPPETCONFLOVESDOCKER</strong></h2>
       </section>
 
       <section>
-        <h2>Who are you folks?</h2>
+        <h1>Who are you folks?</h1>
       </section>
 
       <section>
@@ -194,15 +195,28 @@
 
       <section>
         <h2>Building the image</h2>
-
+<br />
         <pre><code style="font-size: 120%" class="bash" data-trim>$ sudo docker build -t="jamtur01/apache2" .</code></pre>
       </section>
+
+<section>
+  <h2>Sharing the image</h2>
+<br />
+  <pre><code style="font-size: 120%" class="bash" data-trim>$ sudo docker push jamtur01/apache2</code></pre>
+</section>
 
       <section>
         <h2>Running the container</h2>
         <br />
         <pre><code style="font-size: 120%" class="bash" data-trim>$ sudo docker run -ti -p 80:80 jamtur01/apache2</code></pre>
       </section>
+
+<section>
+  <h1>Docker and Puppet</h1>
+  <div>
+    <img alt="ship" src="images/ship.png" class="plain" style="text-align: center; width: 600px; height: 400px">
+  </div>
+</section>
 
       <section>
         <h1>So does the Dockerfile solve all?</h1>
@@ -405,18 +419,19 @@ Use Puppet to setup hardware, install packages, deploy code, run services.
       </section>
 
       <section>
-        <h2>Starts to create a new way</h2>
+        <h1>Creates a new architecture</h1>
+      </section>
+
+      <section>
         <ul style="list-style: none;">
           <li>
-            <h3>Microservices architecture</h3>
-          <li>
-            <h3>Separate orthogonal concerns</h3>
+            <h3>Separates orthogonal concerns</h3>
           <li>
             <h3>Don't rebuild your app to change services</h3>
           <li>
             <h3>Have different policies in domains</h3>
           <li>
-            <h3>Ship lighter containers</h3>
+            <h3>Ship lighter apps</h3>
         </ul>
       </section>
 
